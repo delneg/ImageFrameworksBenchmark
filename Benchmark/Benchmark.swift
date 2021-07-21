@@ -76,7 +76,7 @@ class CacheHitPerformanceTests: XCTestCase {
     }
 
     func testAppleSample() {
-        let urls = urls.map { $0 as NSURL }
+        let urls = self.urls.map { $0 as NSURL }
 
         for url in urls {
             AppleSample.ImageCache.publicCache.storeImage(image, for: url)
@@ -141,7 +141,7 @@ class CacheMissPerformanceTests: XCTestCase {
     }
 
     func testAppleSample() {
-        let urls = urls.map { $0 as NSURL }
+        let urls = self.urls.map { $0 as NSURL }
 
         let items = urls.map {
             Item(image: nil, url: $0)
