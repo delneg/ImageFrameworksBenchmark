@@ -1,0 +1,64 @@
+PODS:
+  - libaom (2.0.2):
+    - libvmaf
+  - libavif (0.9.2):
+    - libavif/libaom (= 0.9.2)
+  - libavif/core (0.9.2)
+  - libavif/libaom (0.9.2):
+    - libaom (>= 2.0.0)
+    - libavif/core
+  - libavif/libdav1d (0.9.2):
+    - libavif/core
+    - libdav1d (>= 0.6.0)
+  - libdav1d (0.9.0)
+  - libvmaf (2.2.0)
+  - Nuke (9.5.0)
+  - Nuke-AVIF-Plugin (1.0.0):
+    - libavif (>= 0.9.1)
+    - Nuke (~> 9.0)
+  - SDWebImage (5.12.1):
+    - SDWebImage/Core (= 5.12.1)
+  - SDWebImage/Core (5.12.1)
+  - SDWebImageAVIFCoder (0.9.0):
+    - libavif (>= 0.9.1)
+    - SDWebImage (~> 5.10)
+
+DEPENDENCIES:
+  - libavif/libdav1d
+  - Nuke (~> 9.0)
+  - Nuke-AVIF-Plugin (from `https://github.com/delneg/Nuke-AVIF-Plugin.git`)
+  - SDWebImage
+  - SDWebImageAVIFCoder
+
+SPEC REPOS:
+  trunk:
+    - libaom
+    - libavif
+    - libdav1d
+    - libvmaf
+    - Nuke
+    - SDWebImage
+    - SDWebImageAVIFCoder
+
+EXTERNAL SOURCES:
+  Nuke-AVIF-Plugin:
+    :git: https://github.com/delneg/Nuke-AVIF-Plugin.git
+
+CHECKOUT OPTIONS:
+  Nuke-AVIF-Plugin:
+    :commit: fa4276212d30f16fa27a6202430e88168c2598e2
+    :git: https://github.com/delneg/Nuke-AVIF-Plugin.git
+
+SPEC CHECKSUMS:
+  libaom: 9bb51e0f8f9192245e3ca2a1c9e4375d9cbccc52
+  libavif: 280ef3e8eab0c51de6f98638d5a9776cf9e2f163
+  libdav1d: 93b883f625964ce7715cc40aed2105ad8b4b6095
+  libvmaf: 8d61aabc2f4ed3e6591cf7406fa00a223ec11289
+  Nuke: 6f400a4ea957e09149ec335a3c6acdcc814d89e4
+  Nuke-AVIF-Plugin: a5b673442cbb7478c84c3e5a65bd5234e0205d42
+  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
+  SDWebImageAVIFCoder: 9360eec47b0fd17f6f528ad60e641553dfe0a7e2
+
+PODFILE CHECKSUM: 7a30a9424b0dbe658fc3a998e0a2f708a84fc30b
+
+COCOAPODS: 1.11.2
