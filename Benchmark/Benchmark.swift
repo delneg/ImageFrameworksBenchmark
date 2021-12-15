@@ -8,7 +8,7 @@ import Alamofire
 import AlamofireImage
 import Kingfisher
 import SDWebImage
-import AppleSample
+//import AppleSample
 
 // MARK: - Main-Thread Performance
 
@@ -25,7 +25,7 @@ class CacheHitPerformanceTests: XCTestCase {
     let view = CustomImageView()
     let image = UIImage(named: "fixture")! // same image so that it gets decoded once
     // 10_000 iterations, but 100 unique URLs
-    let urls: [URL] = (0..<25_000).map { _ in URL(string: "http://test.com/\(arc4random_uniform(100)).jpeg")! }
+    let urls: [URL] = (0..<25_000).map { _ in URL(string: "https://test.com/\(arc4random_uniform(100)).jpeg")! }
 
     func testNuke() {
         for url in urls {
@@ -75,29 +75,29 @@ class CacheHitPerformanceTests: XCTestCase {
         }
     }
 
-    func testAppleSample() {
-        let urls = self.urls.map { $0 as NSURL }
-
-        for url in urls {
-            AppleSample.ImageCache.publicCache.storeImage(image, for: url)
-        }
-
-        let items = urls.map {
-            Item(image: nil, url: NSURL(string: $0.absoluteString!)!)
-        }
-
-        let allItems = zip(urls, items)
-
-        measure {
-            for (url, item) in allItems {
-                AppleSample.ImageCache.publicCache.load(url: url, item: item) { item, image in
-                    // Techincally we update the item in this callback and reload
-                    // the view that is currenltly displaying it.
-                    self.view.image = image
-                }
-            }
-        }
-    }
+//    func testAppleSample() {
+//        let urls = self.urls.map { $0 as NSURL }
+//
+//        for url in urls {
+//            AppleSample.ImageCache.publicCache.storeImage(image, for: url)
+//        }
+//
+//        let items = urls.map {
+//            Item(image: nil, url: NSURL(string: $0.absoluteString!)!)
+//        }
+//
+//        let allItems = zip(urls, items)
+//
+//        measure {
+//            for (url, item) in allItems {
+//                AppleSample.ImageCache.publicCache.load(url: url, item: item) { item, image in
+//                    // Techincally we update the item in this callback and reload
+//                    // the view that is currenltly displaying it.
+//                    self.view.image = image
+//                }
+//            }
+//        }
+//    }
 }
 
 /// These tests cover the main-thread performance for the scenario where the
@@ -105,7 +105,7 @@ class CacheHitPerformanceTests: XCTestCase {
 /// to be sent (cache miss).
 class CacheMissPerformanceTests: XCTestCase {
     let view = CustomImageView()
-    let urls: [URL] = (0..<20_000).map { _ in URL(string: "http://test.com/\(arc4random()).jpeg")! }
+    let urls: [URL] = (0..<20_000).map { _ in URL(string: "https://test.com/\(arc4random()).jpeg")! }
 
 
     func testNuke() {
@@ -140,23 +140,23 @@ class CacheMissPerformanceTests: XCTestCase {
         }
     }
 
-    func testAppleSample() {
-        let urls = self.urls.map { $0 as NSURL }
-
-        let items = urls.map {
-            Item(image: nil, url: $0)
-        }
-
-        let allItems = zip(urls, items)
-
-        measure {
-            for (url, item) in allItems {
-                AppleSample.ImageCache.publicCache.load(url: url, item: item) { item, image in
-                    // Techincally we update the item in this callback and reload
-                    // the view that is currenltly displaying it.
-                    self.view.image = image
-                }
-            }
-        }
-    }
+//    func testAppleSample() {
+//        let urls = self.urls.map { $0 as NSURL }
+//
+//        let items = urls.map {
+//            Item(image: nil, url: $0)
+//        }
+//
+//        let allItems = zip(urls, items)
+//
+//        measure {
+//            for (url, item) in allItems {
+//                AppleSample.ImageCache.publicCache.load(url: url, item: item) { item, image in
+//                    // Techincally we update the item in this callback and reload
+//                    // the view that is currenltly displaying it.
+//                    self.view.image = image
+//                }
+//            }
+//        }
+//    }
 }
