@@ -525,7 +525,7 @@
 			repositoryURL = "https://github.com/delneg/Nuke-AVIF-Plugin.git";
 			requirement = {
 				kind = revision;
-				revision = 98ad26368a1685a010ebcf5b2cf938bda5e3b217;
+				revision = a9f17f841181513286c0d8b6ac2693d2a1aac4e6;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
