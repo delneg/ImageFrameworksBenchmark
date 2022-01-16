@@ -10,7 +10,7 @@ import NukeAVIFPlugin
 //import AlamofireImage
 //import Kingfisher
 import SDWebImage
-import SDWebImageAVIFCoder
+//import SDWebImageAVIFCoder
 
 //import AppleSample
 
@@ -49,19 +49,19 @@ class CacheHitPerformanceTests: XCTestCase {
         }
     }
 
-    func testSDWebImage() {
-        let AVIFCoder = SDImageAVIFCoder.shared
-        SDImageCodersManager.shared.addCoder(AVIFCoder)
-        for url in urls {
-            SDImageCache.shared.store(image, imageData: nil, forKey: url.absoluteString, toDisk: false, completion: nil)
-        }
-
-        measure {
-            for url in urls {
-                view.sd_setImage(with: url)
-            }
-        }
-    }
+//    func testSDWebImage() {
+//        let AVIFCoder = SDImageAVIFCoder.shared
+//        SDImageCodersManager.shared.addCoder(AVIFCoder)
+//        for url in urls {
+//            SDImageCache.shared.store(image, imageData: nil, forKey: url.absoluteString, toDisk: false, completion: nil)
+//        }
+//
+//        measure {
+//            for url in urls {
+//                view.sd_setImage(with: url)
+//            }
+//        }
+//    }
 //    }
 }
 
@@ -82,15 +82,15 @@ class CacheMissPerformanceTests: XCTestCase {
         }
     }
     
-    func testSDWebImage() {
-        let AVIFCoder = SDImageAVIFCoder.shared
-        SDImageCodersManager.shared.addCoder(AVIFCoder)
-        measure {
-            for url in urls {
-                view.sd_setImage(with: url)
-            }
-        }
-    }
+//    func testSDWebImage() {
+//        let AVIFCoder = SDImageAVIFCoder.shared
+//        SDImageCodersManager.shared.addCoder(AVIFCoder)
+//        measure {
+//            for url in urls {
+//                view.sd_setImage(with: url)
+//            }
+//        }
+//    }
 
 //    func testAppleSample() {
 //        let urls = self.urls.map { $0 as NSURL }
